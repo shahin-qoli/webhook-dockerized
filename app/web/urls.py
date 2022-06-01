@@ -1,7 +1,7 @@
 from django.urls import path
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
-from . import views
+from . import views,initials
 from .API.views import pricelist_collection, pricelist_element
 from .importFromExcel import PriceList, Price, Brand
 
@@ -11,12 +11,12 @@ from .views import PriceListView, BrandDetailsView, BrandListView, pagePriceList
 
 app_name = 'web'
 urlpatterns = [
-    # path('hook/start/',views.getDataFromSpree,name='getdata'),
-   #  path('init/spreeprices', initials.initSpreePrices, name='initSpreePrices'),
-    # path('init/spreeproducts', initials.initSpreeProducts, name='initSpreeProducts'),
-     #path('init/spreevariants', initials.initSpreeVariants, name='initSpreeVariants'),
- #    path('init/SpreeOptionValues', initials.initSpreeOptionValues, name='initSpreeOptionValues'),
-  #   path('init/SpreeOptionValueVariants', initials.initSpreeOptionValueVariants, name='initSpreeOptionValueVariants'),
+     path('hook/start/',views.getDataFromSpree,name='getdata'),
+     path('init/spreeprices', initials.initSpreePrices, name='initSpreePrices'),
+     path('init/spreeproducts', initials.initSpreeProducts, name='initSpreeProducts'),
+     path('init/spreevariants', initials.initSpreeVariants, name='initSpreeVariants'),
+     path('init/SpreeOptionValues', initials.initSpreeOptionValues, name='initSpreeOptionValues'),
+     path('init/SpreeOptionValueVariants', initials.initSpreeOptionValueVariants, name='initSpreeOptionValueVariants'),
      path('', views.pageIndex, name='pageIndex'),
      path('price/export/<int:value>', views.templateExport, name='templateExport'),
      path('price/insert', views.templateImport, name= 'templateImport'),
@@ -31,9 +31,9 @@ urlpatterns = [
      path('form/', BrandListView.as_view(), name= 'pageFormHome'),
      path('forms/pricelist/prices/createReady', pagePriceCreateReady, name="pagePriceCreateReady"),
      path('forms/pricelist/prices/create/<brand_id>/<pk>', pagePriceCreate, name="pagePriceCreate"),
-     #path('init/excel/PriceList', PriceList, name="initPriceList"),
-     #path('init/excel/Price', Price, name="initPrice"),
-    # path('init/excel/Brand', Brand, name="initBrand"),
+     path('init/excel/PriceList', PriceList, name="initPriceList"),
+     path('init/excel/Price', Price, name="initPrice"),
+     path('init/excel/Brand', Brand, name="initBrand"),
 
 
      #API
