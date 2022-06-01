@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<hr>
+
+
+{% block content %}
+    <h2>لیست قیمت های موجود برای برند انتخابی، برای مشاهده جزییات هر لیست کلیک کنید</h2>
+    <ul>
+        {% for list in pricelist %}
+            <li> <a href="{% url 'web:pagePriceListDetails' list.id %}" >{{ list }}</a></li>
+        {% endfor %}
+    </ul>
+    <hr>
+
+    <a href="{% url 'web:pagePriceListCreate' brand_id %}" >برای ساخت لیست قیمت جدید کلیک کنید</a>
+
+
+{% endblock %}
+</body>
+</html>

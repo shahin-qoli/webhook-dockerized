@@ -1,0 +1,137 @@
+
+
+
+
+
+
+{% extends "base.html" %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+<style>
+    .form-item{
+        display:flex;
+        flex-direction: row;
+
+    }
+    .form-item-label{
+        width: 90px;
+
+    }
+    .form-item-input{
+    flex: 1;
+    padding: 0 24px;
+    }
+    .form-item-input input{
+        width: 100%;
+    }
+</style>
+
+</head>
+<body>
+{% block content %}
+ <form action="{% url 'web:pagePriceListCreate' request.resolver_match.kwargs.brand_id %}" method="POST">
+
+    {% csrf_token %}
+<div class="form-item">
+    <div class="form-item-label">
+        {{ form.title.label }}
+    </div>
+    <div class="form-item-input">
+        {{ form.title }}
+    </div>
+
+</div>
+<div class="form-item">
+    <div class="form-item-label">
+        {{ form.brand.label }}
+    </div>
+    <div class="form-item-input">
+        {{ form.brand }}
+    </div>
+
+</div>
+<div class="form-item">
+    <div class="form-item-label">
+        {{ form.created_at.label }}
+    </div>
+    <div class="form-item-input">
+        {{ form.created_at }}
+    </div>
+
+</div>
+<div class="form-item">
+    <div class="form-item-label">
+        {{ form.start_at.label }}
+    </div>
+    <div class="form-item-input">
+        {{ form.start_at }}
+    </div>
+
+</div>
+<div class="form-item">
+    <div class="form-item-label">
+        {{ form.end_at.label }}
+    </div>
+    <div class="form-item-input">
+        {{ form.end_at }}
+    </div>
+
+</div>
+<div class="form-item">
+    <div class="form-item-label">
+        {{ form.retailer_discount.label }}
+    </div>
+    <div class="form-item-input">
+        {{ form.retailer_discount }}
+    </div>
+
+</div>
+<div class="form-item">
+    <div class="form-item-label">
+        {{ form.retailer_cheque_discount.label }}
+    </div>
+    <div class="form-item-input">
+        {{ form.retailer_cheque_discount }}
+    </div>
+
+</div>
+  <div class="form-item">
+    <div class="form-item-label">
+        {{ form.distributer_discount.label }}
+    </div>
+    <div class="form-item-input">
+        {{ form.distributer_discount }}
+    </div>
+
+</div>
+  <div class="form-item">
+    <div class="form-item-label">
+        {{ form.distributer_cheque_discount.label }}
+    </div>
+    <div class="form-item-input">
+        {{ form.distributer_cheque_discount }}
+    </div>
+
+</div>
+  <div class="form-item">
+    <div class="form-item-label">
+        {{ form.cheque_time.label }}
+    </div>
+    <div class="form-item-input">
+        {{ form.cheque_time }}
+    </div>
+
+</div>
+
+
+
+<input type="submit" value="submit"> </form>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+{% block content %}
+
+
+<h4> لیست برندها</h4>
+
+<b> برای دانلود فایل اکسل کلیک کنید</b>
+<ul>
+{% for brand in brands %}
+
+
+    {% url 'web:templateExport' value=brand.id as export %}
+    <li>
+     <a href="{{ export }}">{{ brand.presentation }}</a>
+</li>
+
+
+{% endfor %}
+</ul>
+
+
+{% endblock content %}
+</html>

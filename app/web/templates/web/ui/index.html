@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+{% block content %}
+
+
+<h4> لیست برندها</h4>
+
+<b> برای مشاهده لیست قیمت ها کلیک کنید</b>
+<ul>
+{% for brand in brands %}
+
+
+    {% url 'web:priceListView' value=brand.id as ui %}
+    <li>
+     <a href="{{ export }}">{{ brand.presentation }}</a>
+</li>
+
+
+{% endfor %}
+</ul>
+
+
+{% endblock content %}
+</html>

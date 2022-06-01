@@ -1,0 +1,11 @@
+<html lang="en">
+{% extends "base.html" %}
+{% block content %}
+<form enctype="multipart/form-data" method="POST" action= "{% url 'web:templateImport' %}">
+    {% csrf_token %}
+   {{form.as_p}}
+   <input type="submit">
+
+</form>
+{% endblock content %}
+</html>

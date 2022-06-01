@@ -3,7 +3,7 @@ version: '3.7'
 services:
   web:
     build: .
-    container_name: test_deploy_web
+    container_name: wbhk_deploy_web
     command: gunicorn app.wsgi:application --bind 0.0.0.0:8000
     volumes:
       - ./app:/app/
@@ -17,21 +17,23 @@ services:
 
   db:
     image: postgres
-    container_name: test_deploy_db
+    container_name: wbhk_deploy_db
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=hello
+    ports:
+      - 5439:5432  
 
   nginx:
     build: ./nginx
-    container_name: test_deploy_nginx
+    container_name: wbhk_deploy_nginx
     volumes:
       - staticfiles:/app/static/
     ports:
-      - 8008:80
+      - 8009:80
     depends_on:
       - web
 

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+{% block content %}
+
+
+<h4> روش های مشاهده قیمت</h4>
+
+<b> لطفا واسط کاربری را انتخاب کنید</b>
+<ul>
+
+
+
+    {% url 'web:pageExcelHome' as excel %}
+    <li>
+     <a href={{ excel }}>استفاده از واسط اکسل</a>
+</li>
+
+    {% url 'web:pageFormHome' as ui %}
+    <li>
+     <a href={{ ui }}>استفاده از واسط فرم</a>
+</li>
+
+</ul>
+
+
+{% endblock content %}
+</html>
